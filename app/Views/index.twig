@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/app/Views/styles/styles.css">
+    <title>Giphy page</title>
+</head>
+<body>
+<h1>Best gifs here</h1>
+
+<form method="get" action="/search">
+    <label for="search">
+        <input id=search type="text" name="q" placeholder="Tag....">
+    </label>
+    <button type="submit">Search</button>
+</form>
+<a href="/trending">Out of Ideas. Try trending</a>
+<div class="gif">
+    {% if gifs is empty %}
+        <p>No results found.</p>
+    {% else %}
+        <ul>
+            {% for gif in gifs %}
+                <li><img src="{{ gif.url }}" alt="{{ gif.title }}"></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+</body>
+</html>

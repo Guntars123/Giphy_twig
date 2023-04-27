@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/app/Views/styles/styles.css">
+    <title>Trending Gifs</title>
+</head>
+<body>
+<h1>Trending GIFs</h1>
+<div class="gif">
+    {% if gifs is empty %}
+        <p>No results found.</p>
+    {% else %}
+        <ul>
+            {% for gif in gifs %}
+                <li><img src="{{ gif.url }}" alt="{{ gif.title }}"></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="/">Back to home</a>
+</div>
+</body>
+</html>
