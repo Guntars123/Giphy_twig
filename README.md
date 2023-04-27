@@ -7,5 +7,5 @@ Hi, this app displays gifs. here are the instructions how to open project:
 | 3    | Change .env.example to .env // insert API KEY |
 | 4    | php -S localhost:8000                         |
 
-Wegpage screenshot:
+Webpage screenshot:
 <img src="app/Views/images/example.png">
