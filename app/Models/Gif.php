@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-class GiphyGif
+class Gif
 {
     private string $title;
     private string $url;
-
 
     public function __construct(string $title, string $url)
     {
@@ -14,12 +13,10 @@ class GiphyGif
         $this->url = $url;
     }
 
-
-    public function getName(): string
+    public function getTitle(): string
     {
         return $this->title;
     }
-
 
     public function getUrl(): string
     {

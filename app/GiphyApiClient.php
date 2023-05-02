@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\Models;
+namespace App;
 
+use App\Models\Gif;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
@@ -18,13 +19,13 @@ class GiphyApiClient
         $this->apiKey = $_ENV["API_KEY"];
     }
 
-    public function fetchSearch(string $tag, int $count): ?array
+    public function fetchSearch(string $query, int $count): ?array
     {
         try {
             $response = $this->client->get('gifs/search', [
                 'query' => [
                     'api_key' => $this->apiKey,
-                    'q' => $tag,
+                    'q' => $query,
                     'limit' => $count,
                 ],
             ]);
@@ -49,12 +50,12 @@ class GiphyApiClient
         return null;
     }
 
-    private function getCollection($fetchResults): ?array
+    private function getCollection(array $fetchResults): ?array
     {
         if ($fetchResults != null) {
             $gifs = [];
-            foreach ($fetchResults as $giphy) {
-                $gifs[] = new GiphyGif("{$giphy->title}", "{$giphy->images->original->url}");
+            foreach ($fetchResults as $gif) {
+                $gifs[] = new Gif("{$gif->title}", "{$gif->images->original->url}");
             }
             return $gifs;
         }
