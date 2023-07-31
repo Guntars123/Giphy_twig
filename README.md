@@ -1,4 +1,5 @@
-Hi, this app displays gifs. Here are the instructions how to open project:
+A fun application that allows users to search for and display animated GIFs using the Giphy API. Built with PHP, Twig, CSS.
+Here are the instructions how to open project:
 
 | Step | Description                                      |
 |------|--------------------------------------------------|
@@ -8,4 +9,4 @@ Hi, this app displays gifs. Here are the instructions how to open project:
 | 4    | run php -S localhost:8000 from /public directory |
 
 Webpage screenshot:
-<img src="public/images/example.png">
+<img src="public/images/giphy.png">
